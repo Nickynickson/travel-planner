@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Travel Planner</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbJAkrRdj0JNs165T6dF_-QQuQ6KxIRGg&callback=initMap&loading=async"></script>
+</head>
+<body>
+    <header>
+        <h1>Travel Planner</h1>
+        <input type="text" id="destination-input" placeholder="Enter destination...">
+        <button id="search-button">Search</button>
+    </header>
+    <main>
+        <section id="destination-suggestions"></section>
+        <section id="itinerary">
+            <h2>Your Itinerary</h2>
+            <ul id="itinerary-list"></ul>
+            <button id="clear-itinerary">Clear Itinerary</button>
+        </section>
+        <section id="map"></section>
+        <section id="weather"></section>
+        <section id="budget">
+            <h2>Budget Tracker</h2>
+            <input type="number" id="expense-input" placeholder="Enter expense">
+            <button id="add-expense">Add Expense</button>
+            <p>Total Expenses: <span id="total-expenses">0</span></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Travel Planner</p>
+    </footer>
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+GET https://booking-com15.p.rapidapi.com/api/v1/hotels/searchHotelsByCoordinates?latitude=19.24232736426361&longitude=72.85841985686734&arrival_date=2025-04-10&departure_date=2025-04-17&adults=1&children_age=0%2C17&room_qty=1&units=metric&page_number=1&temperature_unit=c&languagecode=en-us&currency_code=EUR&location=US HTTP/1.1
+x-rapidapi-key: d3724cb7bcmsh9479db99ce4a7d7p19fb4bjsnc8ac5efa823e
+x-rapidapi-host: booking-com15.p.rapidapi.com
+
+###
+GET https://booking-com15.p.rapidapi.com/api/v1/hotels/searchHotelsByCoordinates?latitude=19.24232736426361&longitude=72.85841985686734&arrival_date=2025-04-11&departure_date=2025-04-12&adults=1&children_age=0%2C17&room_qty=1&units=metric&page_number=1&temperature_unit=c&languagecode=en-us&currency_code=EUR&location=US HTTP/1.1
+x-rapidapi-key: d3724cb7bcmsh9479db99ce4a7d7p19fb4bjsnc8ac5efa823e
+x-rapidapi-host: booking-com15.p.rapidapi.com
