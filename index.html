@@ -5,7 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <title>Travel Planner</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbJAkrRdj0JNs165T6dF_-QQuQ6KxIRGg&callback=initMap&loading=async"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQch4HSlx0zROhvrOSis0wylfwqZ8VXpc&callback=initMap&loading=async"></script>
+    <style>
+        /* Add the CSS styles for accommodation cards */
+        .suggestions-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .accommodation-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 16px;
+            width: 250px;
+            transition: transform 0.2s;
+        }
+
+        .accommodation-card:hover {
+            transform: scale(1.05);
+        }
+
+        .accommodation-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .accommodation-details {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -14,13 +44,13 @@
         <button id="search-button">Search</button>
     </header>
     <main>
-        <section id="destination-suggestions"></section>
+        <section id="destination-suggestions" class="suggestions-container"></section>
         <section id="itinerary">
             <h2>Your Itinerary</h2>
             <ul id="itinerary-list"></ul>
             <button id="clear-itinerary">Clear Itinerary</button>
         </section>
-        <section id="map"></section>
+        <section id="map" style="height: 400px;"></section>
         <section id="weather"></section>
         <section id="budget">
             <h2>Budget Tracker</h2>
@@ -36,3 +66,46 @@
     <script src="js/app.js"></script>
 </body>
 </html>
+<script>
+    // Initialize the map
+    function initMap() {
+        const map = new google.maps.Map(document.getElementById('map'), {
+            center: { lat: -34.397, lng: 150.644 },
+            zoom: 8,
+        });
+    }
+
+    // Event listener for the search button
+    document.getElementById('search-button').addEventListener('click', function() {
+        const destination = document.getElementById('destination-input').value;
+        fetchAccommodationSuggestions(destination);
+        // Fetch weather data (simulated for this example)
+        fetchWeatherData(destination);
+        fetchMapData(destination);
+    });
+
+    // Function to fetch accommodation suggestions
+    function fetchAccommodationSuggestions(destination) {
+        // Simulated API call to fetch accommodation data
+        const accommodations = [
+            { name: 'Hotel A', price: 100, image: 'https://via.placeholder.com/150' },
+            { name: 'Hotel B', price: 150, image: 'https://via.placeholder.com/150' },
+            { name: 'Hotel C', price: 200, image: 'https://via.placeholder.com/150' },
+        ];
+
+        const suggestionsContainer = document.getElementById('destination-suggestions');
+        suggestionsContainer.innerHTML = ''; // Clear previous suggestions
+
+        accommodations.forEach(accommodation => {
+            const card = document.createElement('div');
+            card.className = 'accommodation-card';
+            card.innerHTML = `
+                <img src="${accommodation.image}" alt="${accommodation.name}" class="accommodation-image">
+                <div class="accommodation-details">
+                    <h3>${accommodation.name}</h3>
+                    <p>Price: $${accommodation.price}</p>
+                </div>
+            `;
+            suggestionsContainer.appendChild(card);
+        });
+    }

@@ -1,6 +1,6 @@
 const API_KEYS = {
     opencage: '67ceddd1b1d641e2875b4343ba2900bb',
-    googleMaps: 'AIzaSyCbJAkrRdj0JNs165T6dF_-QQuQ6KxIRGg',
+    googleMaps: 'AIzaSyBQch4HSlx0zROhvrOSis0wylfwqZ8VXpc',
     weather: '488b35dde47f4b61b98212410250504',
     booking: 'd3724cb7bcmsh9479db99ce4a7d7p19fb4bjsnc8ac5efa823e',  // Placeholder
     tripAdvisor: 'd3724cb7bcmsh9479db99ce4a7d7p19fb4bjsnc8ac5efa823e'  // Placeholder
@@ -40,12 +40,19 @@ function initMap(location) {
 
 
 // Fetch weather data for a specific location
-async function getWeather(location) {
-    const url = `https://api.weatherapi.com/v1/current.json?key=${API_KEYS.weather}&q=${location}&aqi=yes`
+//async function getWeather(location) {
+  //  const url = `https://api.weatherapi.com/v1/current.json?key=${API_KEYS.weather}&q=${location}&aqi=yes`
     //const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEYS.weather}`;
+    //const response = await fetchData(url);
+    //console.log(response);
+//}
+
+async function getWeather(location) {
+    const url = `https://api.weatherapi.com/v1/current.json?key=${API_KEYS.weather}&q=${location}&aqi=yes`;
     const response = await fetchData(url);
-    console.log(response);
+    return response; // Return the full weather data for display
 }
+
 
 const getCoordinates = async (city) => {
     /*const geocoder = new google.maps.Geocoder();
